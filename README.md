@@ -64,3 +64,44 @@
 		imprimirMayores(data);
 	}
 ```
+
+====> Ejercicio 9:
+
+```
+	static string[,] ingresarProductos() {
+		string[,] data = new string[5, 2];
+
+		for (int i = 0; i < 5; i++) 
+		{
+			Console.WriteLine("****** Producto {0} ******", i+1);
+			Console.Write("Nombre: ");
+			data[i,0] = Console.ReadLine();
+			Console.Write("Precio: ");
+			data[i,1] = Console.ReadLine();
+		}
+		
+		return  data;
+	}
+	
+	static void imprimirMayores(string[,] mtz) 
+	{
+		int p = int.Parse(mtz[0,1]);
+		for (int i = 0; i < 5; i++) 
+		{
+
+			if (int.Parse(mtz[i,1]) > p)
+			{
+				Console.WriteLine("*******===<3=>******");
+				Console.WriteLine("{0} es más caro que el 1er producto: {1}", mtz[i,0], mtz[0,0]);
+			}
+		}
+	}
+	
+	
+	
+	public static void Main()
+	{
+		string[,] data = ingresarProductos();
+		imprimirMayores(data);
+	}
+```
