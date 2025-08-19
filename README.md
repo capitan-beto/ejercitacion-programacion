@@ -105,3 +105,57 @@
 		imprimirMayores(data);
 	}
 ```
+
+====> Ejercicio 10:
+
+```
+	static (string[] nombres, int[] notas) ingresarNotas() {
+		string[] nombres = new string[4];
+		int[] notas = new int[4];
+		
+		for (int i = 0; i < 4; i++) 
+		{
+			Console.WriteLine("****** Estudiante {0} ******", i+1);
+			Console.Write("Nombre: ");
+			nombres[i] = Console.ReadLine();
+			Console.Write("Nota: ");
+			string a = Console.ReadLine();
+			notas[i] = int.Parse(a);
+		}
+		
+		return  (nombres, notas);
+	}
+	
+	static void imprimirMB(string[] nombres, int[] notas) 
+	{
+		int mb = 0;
+		
+		for (int i = 0; i<4; i++) 
+		{
+			switch (notas[i]) 
+			{
+				case >= 8:
+					Console.WriteLine("*** Nombre: {0}, Nota: {1}, Calif: Muy Bueno ***", nombres[i], notas[i]);
+					mb++;
+					break;
+				case >= 4:
+					Console.WriteLine("*** Nombre: {0}, Nota: {1}, Calif: Bueno ***", nombres[i], notas[i]);
+					break;
+				case >= 0:
+					Console.WriteLine("*** Nombre: {0}, Nota: {1}, Calif: Insuficiente ***", nombres[i], notas[i]);
+					break;
+			}
+		}
+		
+		Console.WriteLine("*** La cant. de alumnos con Muy Bueno son: {0}", mb);
+	}
+	
+	
+	
+	public static void Main()
+	{
+		var (nombres, notas) = ingresarNotas();
+		imprimirMB(nombres, notas);
+	}
+```
+
